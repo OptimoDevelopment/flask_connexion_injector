@@ -1,14 +1,14 @@
-class BaseTalkingProvider:
+class BaseHelloProvider:
     def say_hello(self, name: str):
         raise NotImplemented
 
 
-class DbTalkingProvider(BaseTalkingProvider):
+class DbHelloProvider(BaseHelloProvider):
     def say_hello(self, name: str):
         return f'Database says "Hello { name }!"'
 
 
-class CachedProvider(BaseTalkingProvider):
+class CacheHelloProvider(BaseHelloProvider):
     def say_hello(self, name: str):
         return f'Cache says "Hello { name }!"'
 

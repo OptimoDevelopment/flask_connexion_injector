@@ -1,15 +1,15 @@
 from functools import wraps
 
-from .providers import BaseTalkingProvider
+from .providers import BaseHelloProvider
 
 
 def injectable_decorator(some_param=False):
     def decorator(func):
         @wraps(func)
-        def wrapper(*args, __injected_talking_provider__, **kwargs):
+        def wrapper(*args, __injected_hello_provider__, **kwargs):
 
             print(
-                __injected_talking_provider__.say_hello('Super Decorator')
+                __injected_hello_provider__.say_hello('Super Decorator')
             )
 
             if some_param:
@@ -21,7 +21,7 @@ def injectable_decorator(some_param=False):
 
         wrapper.__annotations__ = {
             **original_annotations,
-            '__injected_talking_provider__': BaseTalkingProvider,
+            '__injected_talking_provider__': BaseHelloProvider,
         }
         return wrapper
     return decorator

@@ -3,7 +3,7 @@ import connexion
 from connexion.mock import MockResolver
 from flask_injector import FlaskInjector
 
-from .injections import ApiModule, AppProviderModule, CachedApiModule
+from .injections import ApiModule, CachedApiModule
 from .json_encoder import CustomJsonEncoder
 
 app = connexion.App(__name__, specification_dir='swagger/')
@@ -24,7 +24,6 @@ def setup(app: connexion.App):
 
     FlaskInjector(app=app.app, modules=[
         ApiModule,
-        AppProviderModule,
         # CachedApiModule,  # Uncomment this to see how injector replaces BaseTalkingProvider implementation
     ])
 
