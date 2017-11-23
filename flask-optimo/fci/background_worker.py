@@ -1,11 +1,11 @@
 import injector
 
 from .injections import ApiModule
-from .providers import BaseTalkingProvider
+from .providers import BaseHelloProvider
 
 injected = injector.Injector([ApiModule])
 
-our_provider = injected.get(BaseTalkingProvider)
+our_provider = injected.get(BaseHelloProvider)
 
 while True:
     our_provider.say_hello()
