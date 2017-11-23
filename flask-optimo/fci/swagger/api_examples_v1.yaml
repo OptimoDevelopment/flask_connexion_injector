@@ -1,0 +1,38 @@
+swagger: "2.0"
+
+info:
+  title: "Flask Optimo API"
+  description: "API preview"
+  version: "2.0 RC1"
+
+basePath: /api/v2.0/
+
+paths:
+  /fibonacci:
+    post:
+      parameters:
+        - name: body
+          in: 'body'
+          required: true
+          schema:
+            type: object
+            properties:
+              index:
+                type: integer
+      responses:
+        '200':
+          description: 'Get fibonacci sequence'
+          schema:
+            $ref: '#/definitions/FibonacciResponse'
+          examples:
+            application/json:
+                - index: 2
+                  value: [1, 2, 3, 4]
+
+
+definitions:
+  FibonacciResponse:
+    type: object
+    properties:
+      index: { type: integer }
+      value: { type: array, items: { type: integer }}
