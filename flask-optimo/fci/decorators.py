@@ -21,7 +21,7 @@ def injectable_decorator(some_param=False):
 
         wrapper.__annotations__ = {
             **original_annotations,
-            '__injected_talking_provider__': BaseHelloProvider,
+            '__injected_hello_provider__': BaseHelloProvider,
         }
         return wrapper
     return decorator
